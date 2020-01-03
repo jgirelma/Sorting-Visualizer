@@ -71,16 +71,14 @@ class SortingVisualizer extends React.Component {
         }
     }
 
-    setArray = async () => {
+    setArray = () => {
         let newArr = Array.from({length: this.state.arraySize}, () => Math.floor(Math.random() * this.state.arraySize)+1);
-        await this.setState({array: newArr, savedArray: newArr, finishedSorting: false, isSorting: false, pointerA: 0, pointerB: 1});
-        this.setInstructions();
+        this.setState({array: newArr, savedArray: newArr, finishedSorting: false, isSorting: false, pointerA: 0, pointerB: 1}, this.setInstructions);
     }
 
-    setArraySize = async (s) => {
+    setArraySize = (s) => {
         if(s !== this.state.arraySize && !this.state.isSorting) {
-            await this.setState({arraySize: s});
-            this.setArray();
+            this.setState({arraySize: s}, this.setArray);
         }
     }
 
@@ -97,8 +95,7 @@ class SortingVisualizer extends React.Component {
     sortMethodSelector = async (m) => {
         if (this.state.method !== m) {
             this.setState({method:m, instruction:0});
-            await this.setArray();
-            this.setInstructions();
+            this.setArray();
         }
     }   
 
