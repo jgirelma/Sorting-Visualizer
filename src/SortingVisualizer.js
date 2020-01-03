@@ -38,7 +38,6 @@ class SortingVisualizer extends React.Component {
                 <Nav 
                 sortMethodSelector={this.sortMethodSelector}
                 sort={this.toggleSort}
-                setSpeed={this.setSpeed}
                 setSize={this.setArraySize}/>
                 <Visualizer
                 arraySize={this.state.arraySize}
@@ -79,16 +78,6 @@ class SortingVisualizer extends React.Component {
     setArraySize = (s) => {
         if(s !== this.state.arraySize && !this.state.isSorting) {
             this.setState({arraySize: s}, this.setArray);
-        }
-    }
-
-    setSpeed = (s) => {
-        if(s !== this.state.speed) {
-            this.setState({speed: s*10+50});
-            if(this.state.isSorting) {
-                clearInterval(this.state.intervalID);
-                this.instructionLoop();
-            }
         }
     }
 

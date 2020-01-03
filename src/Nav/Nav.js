@@ -26,10 +26,6 @@ const Nav = React.memo(function Nav(props) {
             text="Size of Array"
             setValue={props.setSize}
             default={30}/>
-            <Slider 
-            text="Sorting Speed"
-            setValue={props.setSpeed}
-            default={5}/>
           </Toolbar>
           
         </AppBar>
