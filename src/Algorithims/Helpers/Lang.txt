@@ -1,0 +1,8 @@
+# SWAP x,y : Swaps the position of the two in array
+# CMP x,y : compares the position of the two in the array
+# Move Pointer (p), x : Moves pointer p to position x
+# END : the Array is sorted
+
+# POSSIBLE :
+# MERGE SORT MOVE UNSORTED APART
+# SELETION HILIGHT SMALLEST CURRENT
