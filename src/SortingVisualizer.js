@@ -46,7 +46,7 @@ class SortingVisualizer extends React.Component {
                 pointerA={this.state.pointerA}
                 pointerB={this.state.pointerB}/>
                 <Sidebar
-                nextInstruction={this.instructionHandlerLoop}
+                nextInstruction={this.nextInstruction}
                 instructions={this.state.instructions} 
                 instruction={this.state.instruction}
                 toggleSort={this.toggleSort}
@@ -152,6 +152,13 @@ class SortingVisualizer extends React.Component {
                 this.setState({array: arr, pointerA: ptrs["a"], pointerB: ptrs["b"], instruction: i});
             } 
         }
+    }
+
+    nextInstruction = () => {
+        let arr = [...this.state.array];
+        let ptrs = { "a": this.state.pointerA, "b": this.state.pointerB};
+        [arr, ptrs] = instructionHandler(this.state.instructions[this.state.instruction], arr, ptrs);
+        this.setState({array: arr, pointerB: ptrs["b"], pointerA: ptrs["a"], instruction: this.state.instruction+1});
     }
 
     goToInstruction = (target) => {
